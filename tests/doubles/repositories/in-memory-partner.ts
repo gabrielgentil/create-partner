@@ -14,10 +14,14 @@ export class InMemoryPartner implements PartnerRepository {
     return partnerdata
   }
   async findPartnerById(partnerId: string): Promise<IPartnerData[]> {
-    return this._data
+    const found = this._data.find((partner) => partner.document === partnerId)
+
+    return (found || undefined) as any
+   
   }
-  async findPartnerByLongLat(lang: string, lat: string): Promise<IPartnerData[]> {
-    return this._data
-  }
-  
+  async findPartnerByLongLat(coordinates: Array<number>): Promise<IPartnerData[]> {
+    const found = this._data.find((partner) => JSON.stringify(partner.address.coordinates) === JSON.stringify(coordinates))
+
+    return (found || undefined) as any
+  }  
 }

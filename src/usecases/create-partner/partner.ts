@@ -26,8 +26,7 @@ export class CreatePartner implements UseCase {
 				request.document
 			)
 
-
-		if (partnerExists.length) {
+		if (partnerExists) {
 			return left(new ExistingPartnerError())
 		}
 

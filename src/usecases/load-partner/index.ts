@@ -1,0 +1,1 @@
+export { LoadPartner } from './partner'

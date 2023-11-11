@@ -2,6 +2,8 @@ import { Partner } from '@/entities'
 
 describe('Partner domain entity', () => {
 	test('should not add partner with invalid GeoJSON MultiPolygon', () => {
+
+
 		const data = {
 			id: 1,
 			tradingName: 'Adega da Cerveja - Pinheiros',
@@ -40,8 +42,8 @@ describe('Partner domain entity', () => {
 		expect(error.name).toEqual('InvalidGeoJsonError')
 		expect(error.message).toEqual(
 			'Invalid geoJson: ' +
-				JSON.stringify(data.coverageArea) +
-				'.'
+			JSON.stringify(data.coverageArea) +
+			'.'
 		)
 	})
 
@@ -84,8 +86,8 @@ describe('Partner domain entity', () => {
 		expect(error.name).toEqual('InvalidGeoJsonError')
 		expect(error.message).toEqual(
 			'Invalid geoJson: ' +
-				JSON.stringify(data.address) +
-				'.'
+			JSON.stringify(data.address) +
+			'.'
 		)
 	})
 })
